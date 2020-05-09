@@ -29,8 +29,6 @@ test_training$haps <- as.factor(test_training$haps)
 #test_training[sample(which(test_training$haps ==1),1200),3] <- rnorm(1200,mean=0.9,sd=0.02)
 #test_training[sample(which(test_training$haps ==2),1200),3] <- rnorm(1200,mean=0.9,sd=0.02)
 
-library(smotefamily)
-
 genData <- BLSMOTE(test_training[,-ncol(test_training)],test_training[,ncol(test_training)], dupSize=5, K=5, C=5)
 genData <- BLSMOTE(genData$data[,-ncol(test_training)],genData$data[,ncol(test_training)], dupSize=5, K=5, C=5)
 
@@ -59,24 +57,3 @@ RF <- randomForest(haps~., data=test_training, mtry=my_mtry, ntree=800, importan
 
 save(RF,file="Random_forest_model.Rdata")
 
-#pred <- table(predict(RF,newdata=test),test$haps)
-#sum(diag(pred)) / sum(pred)
-
-
-
-#require(ROCR)
-#data(iris)
-#iris$setosa <- factor(1*(iris$Species == 'setosa'))
-#iris.rf <- randomForest(setosa ~ ., data=iris[,-5])
-#summary(predict(iris.rf, iris[,-5]))
-#summary(iris.preds <- predict(iris.rf, iris[,-5], type = 'prob'))
-#preds <- iris.preds[,2]
-#plot(performance(prediction(Fisher_Model_pre$posterior[,1], factor(1*(test$haps == 0))), 'tpr', 'fpr'))
-
-#mean(test$haps == Bayes_Model_pre$class)
-#mean(test$haps == Fisher_Model_pre$class)
-
-#library(ggplot2)
-#ld <- predict(Fisher_Model)$x
-#p <- ggplot(cbind(train, as.data.frame(ld)) ,aes(x=LD1,y=LD2))
-#p + geom_point(aes(colour=haps),alpha=0.4,size=3)
