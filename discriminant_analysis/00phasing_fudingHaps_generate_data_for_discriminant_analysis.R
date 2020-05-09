@@ -3,11 +3,11 @@ library(HMM)
 
 tar_samples <- read.table("training_samples.txt",header=F)
 haps <- read.table("../correct.haps.filtered.formated.txt",header=F)
-snps <- read.table("../formated_w217_snp.filtered.txt",header=T)
+snps <- read.table("../formated_w221_snp.filtered.txt",header=T)
 snps <- snps[haps[,2],]
 snps <- snps[,tar_samples[,1]]
 
-linkage_files <- paste("../../linkage_group/","chr",1:15,".map.ordered.txt",sep="")
+linkage_files <- paste("../linkage_group/","chr",1:15,".map.ordered.txt",sep="")
 
 fuding_phasing <- function(haps, snps) {
 	library(HMM)
