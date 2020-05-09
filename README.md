@@ -1,2 +1,2 @@
-# IBDhap-detector
+# IBDHap-detector
  
