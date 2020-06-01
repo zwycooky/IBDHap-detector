@@ -45,12 +45,12 @@ chr_hap_plot <- function (dat_ori, dat_pred, id, ibs, chr_len, ypos=1) {
 		end <- end + sum(chr_vec[1:chr]) + (chr - 1) * chr_mar
 	
 		if (phu_hap == 1) {
-			ypos_ori <- ypos - 0.15
+			ypos_ori <- ypos - 0.18
 		}else{
-			ypos_ori <- ypos + 0.15
+			ypos_ori <- ypos + 0.18
 		}
 	
-		rect(start,ypos_ori - 0.075,end,ypos_ori + 0.075,border="white",col=mycol[i], lwd=0.1)
+		rect(start,ypos_ori - 0.1,end,ypos_ori + 0.1,border="white",col=mycol[i], lwd=0.1)
 	}
 	
 	# plot pred #
@@ -66,26 +66,26 @@ chr_hap_plot <- function (dat_ori, dat_pred, id, ibs, chr_len, ypos=1) {
 			start <- start + sum(chr_vec[1:chr]) + (chr - 1) * chr_mar
 			end <- end + sum(chr_vec[1:chr]) + (chr - 1) * chr_mar
 			if (haps == 1) {
-				ypos_pred <- ypos - 0.15
-				rect(start,ypos_pred - 0.075,end,ypos_pred + 0.075,border="#E85B51", lwd = 0.2)
+				ypos_pred <- ypos - 0.18
+				rect(start,ypos_pred - 0.1,end,ypos_pred + 0.1,border="#E85B51", lwd = 0.2)
 			}else if (haps == 2) {
-				ypos_pred <- ypos + 0.15
-				rect(start,ypos_pred - 0.075,end,ypos_pred + 0.075,border="#FFC31C", lwd = 0.2)
+				ypos_pred <- ypos + 0.18
+				rect(start,ypos_pred - 0.1,end,ypos_pred + 0.1,border="#FFC31C", lwd = 0.2)
 			}else if (haps == 3) {
-				ypos_pred <- ypos + 0.15
-				rect(start,ypos_pred - 0.075,end,ypos_pred + 0.075,border="#FC8C3D", lwd = 0.2)
-				ypos_pred <- ypos - 0.15
-				rect(start,ypos_pred - 0.075,end,ypos_pred + 0.075,border="#FC8C3D", lwd = 0.2)
+				ypos_pred <- ypos + 0.18
+				rect(start,ypos_pred - 0.1,end,ypos_pred + 0.1,border="#FC8C3D", lwd = 0.2)
+				ypos_pred <- ypos - 0.18
+				rect(start,ypos_pred - 0.1,end,ypos_pred + 0.1,border="#FC8C3D", lwd = 0.2)
 			}else if (haps == 11) {
-				ypos_pred <- ypos + 0.15
-				rect(start,ypos_pred - 0.075,end,ypos_pred + 0.075,border="#E85B51", lwd = 0.2)
-				ypos_pred <- ypos - 0.15
-				rect(start,ypos_pred - 0.075,end,ypos_pred + 0.075,border="#E85B51", lwd = 0.2)
+				ypos_pred <- ypos + 0.18
+				rect(start,ypos_pred - 0.1,end,ypos_pred + 0.1,border="#E85B51", lwd = 0.2)
+				ypos_pred <- ypos - 0.18
+				rect(start,ypos_pred - 0.1,end,ypos_pred + 0.1,border="#E85B51", lwd = 0.2)
 			}else if (haps == 22) {
-				ypos_pred <- ypos + 0.15
-				rect(start,ypos_pred - 0.075,end,ypos_pred + 0.075,border="#FC8C3D", lwd = 0.2)
-				ypos_pred <- ypos - 0.15
-				rect(start,ypos_pred - 0.075,end,ypos_pred + 0.075,border="#FC8C3D", lwd = 0.2)
+				ypos_pred <- ypos + 0.18
+				rect(start,ypos_pred - 0.1,end,ypos_pred + 0.1,border="#FC8C3D", lwd = 0.2)
+				ypos_pred <- ypos - 0.18
+				rect(start,ypos_pred - 0.1,end,ypos_pred + 0.1,border="#FC8C3D", lwd = 0.2)
 			}
 		}
 	}
@@ -93,7 +93,7 @@ chr_hap_plot <- function (dat_ori, dat_pred, id, ibs, chr_len, ypos=1) {
 }
 
 ## 3 * 7 ##
-pdf("04example_chr_haps_plot.pdf",width=7,height=14)
+pdf("04example_chr_haps_plot.pdf",width=7,height=20)
 #par(mfrow=c(66,3))
 
 letters_ext <- letters
@@ -177,7 +177,7 @@ for (i in 1:nrow(pred_hapdat)) {
 	if (tmpibs[2] > 0.9) {
 		points(x=sum(chr_len) * -0.28,y=ypos,cex=0.4,col="#E85B51",xpd=NA,pch=20)
 	}else if (tmpibs[3] > 0.1) {
-		points(x=sum(chr_len) * -0.29,y=ypos,cex=0.4,col="#FC8C3D",xpd=NA,pch=20)
+		#points(x=sum(chr_len) * -0.29,y=ypos,cex=0.4,col="#FC8C3D",xpd=NA,pch=20)
 	}
 	
 	# ancient tree or cultivar #
@@ -230,8 +230,8 @@ for (i in 1:length(mycol)) {
 points (x=sum(chr_len) * 0.45, y=228.4, pch=20, cex=0.7, col="#E85B51", xpd=NA)
 text (x=sum(chr_len) * 0.47, y=228.4, labels="First degree relative with Fudingdabai", cex=0.35, xpd=NA,adj=0)
 
-points (x=sum(chr_len) * 0.45, y=227.4, pch=20, cex=0.7, col="#FC8C3D", xpd=NA)
-text (x=sum(chr_len) * 0.47, y=227.4, labels="Putative triploid offspring of Fudingdabai", cex=0.35, xpd=NA,adj=0)
+#points (x=sum(chr_len) * 0.45, y=227.4, pch=20, cex=0.7, col="#FC8C3D", xpd=NA)
+#text (x=sum(chr_len) * 0.47, y=227.4, labels="Putative triploid offspring of Fudingdabai", cex=0.35, xpd=NA,adj=0)
 
 #points (x=sum(chr_len) * 0.45, y=226.4, pch=20, cex=0.7, col="#2E5A71", xpd=NA)
 #text (x=sum(chr_len) * 0.47, y=226.4, labels="Ancient tree", cex=0.35, xpd=NA,adj=0)
