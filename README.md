@@ -70,3 +70,4 @@ Rscript 04plot_pred_haps.R
 Calculating IBD proportion and plot the IBD detection results
 
 # Citation:
+Zhang, Weiyi; Luo, Cheng; Scossa, Federico; Zhang, Qinghua; Usadel, Bjoern; Fernie, Alisd air R.; Mei, Hanwei; Wen, Weiwei; A phased genome based on single sperm sequencing reveals crossover pattern and complex relatedness in tea plants, Plant J. 2021, 105(1): 197-208
